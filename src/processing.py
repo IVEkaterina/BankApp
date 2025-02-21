@@ -24,7 +24,7 @@ filter_by_state(list_of_dictionaries, state)
 
 def sort_by_date(data: list[dict], reverse: bool = True) -> list[dict]:
   """Функция, которая принимает список словарей и необязательный параметр, задающий порядок сортировки (по умолчанию — убывание).
-  И возвращает новый список, отсортированный по дате"""
+  И возвращает новый список, отсортированный по дате."""
   return sorted(data, key=lambda x: x.get("date", ""), reverse=reverse)
 
 data = [
