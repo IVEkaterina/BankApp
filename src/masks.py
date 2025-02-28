@@ -14,10 +14,10 @@ def get_mask_card_number(card_number: str) -> str:
 def get_mask_account(account: str) -> str:
     """Функция принимает на вход номер счета и возвращает его маску"""
     if account.isdigit():
-      if len(account) == 20:
-        account = "**" + str(account[-4:])
-      else:
-        account = "Введите 20-значный номер счета"
+        if len(account) == 20:
+            account = "**" + str(account[-4:])
+        else:
+            account = "Введите 20-значный номер счета"
     else:
-      account = "Введите номер счета"
+        account = "Введите номер счета"
     return account
