@@ -1,6 +1,6 @@
 from typing import Generator
 
-transactions = (
+transacs = (
     [
         {
             "id": 939719570,
@@ -95,7 +95,7 @@ def filter_by_currency(transactions: list[dict], currency_code: str) -> Generato
             yield transaction
 
 
-usd_transactions = filter_by_currency(transactions, "USD")
+usd_transactions = filter_by_currency(transacs, "USD")
 for _ in range(2):
     print(next(usd_transactions))
 
@@ -107,7 +107,7 @@ def transaction_descriptions(transactions: list[dict]) -> Generator[list[dict], 
         description = transaction["description"]
         yield description
 
-descriptions = transaction_descriptions(transactions)
+descriptions = transaction_descriptions(transacs)
 for _ in range(5):
     print(next(descriptions))
 
