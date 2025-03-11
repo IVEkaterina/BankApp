@@ -41,7 +41,7 @@ def log(filename: Any = None) -> Any:
 
 
 @log(filename="mylog.txt")
-def my_function(x, y):
+def my_function(x: int, y: int) -> int:
     return x + y
 
 
