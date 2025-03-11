@@ -4,8 +4,10 @@ from typing import Any, Callable
 
 def log(filename: Any = None) -> Any:
     """Декоратор, который логирует начало и конец выполнения функции, а также ее результаты или возникшие ошибки."""
+
     def decorator(func: Callable[..., Any]) -> Any:
         """Декоратор, логирования начала и конеца выполнения функции, а также ее результаты или возникшие ошибки."""
+
         @wraps(func)
         def wrapper(*args: Any, **kwargs: Any) -> Any:
             """Обертка декоратора"""
@@ -36,3 +38,11 @@ def log(filename: Any = None) -> Any:
         return wrapper
 
     return decorator
+
+
+@log(filename="mylog.txt")
+def my_function(x, y):
+    return x + y
+
+
+my_function(1, 2)
