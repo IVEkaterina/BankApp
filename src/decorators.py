@@ -9,40 +9,46 @@ def log(filename: Any = None) -> Any:
         """Декоратор, логирования начала и конеца выполнения функции, а также ее результаты или возникшие ошибки."""
 
         @wraps(func)
-        def wrapper(*args: Any, **kwargs: Any) -> Any:
+        def wrapper(*args: tuple[Any, ...], **kwargs: dict[str, Any]) -> Any:
             """Обертка декоратора"""
-            start_message = f"{func.__name__} ok"
-            if filename:
-                with open(filename, "a") as file:
-                    file.write(start_message + "/n")
-            else:
-                print(start_message)
             try:
                 result = func(*args, **kwargs)
-                finish_message = f"Конец функции {func.__name__} c результам: {result}"
+                finish_message = f"{func.__name__} ok"
                 if filename:
-                    with open(filename, "a") as file:
-                        file.write(finish_message + "/n")
+                    with open(filename, "a", encoding="UTF-8") as file:
+                        file.write(finish_message + '\n')
                 else:
                     print(finish_message)
                 return result
             except Exception as e:
-                error_message = f"{func.__name__} error: {type(e).__name__}. Inputs: ({args}), {{kwargs}}"
+                error_message = f"{func.__name__} error: {type(e).__name__}. Inputs: {args}, {kwargs}"
                 if filename:
-                    with open(filename, "a") as file:
-                        file.write(error_message + "/n")
+                    with open(filename, "a", encoding="UTF-8") as file:
+                        file.write(error_message + "\n")
                 else:
                     print(error_message)
-                raise
+                raise e
 
         return wrapper
 
     return decorator
 
 
-@log(filename="mylog.txt")
-def my_function(x: int, y: int) -> int:
+@log()
+def addition(x: int, y: int) -> int:
     return x + y
 
 
-my_function(1, 2)
+@log(filename="mylog.txt")
+def multiplication(m: int, n: int) -> int:
+    return m * n
+
+
+@log()
+def division(a, b):
+    return a / b
+
+
+@log(filename="error.txt")
+def subtraction(c, d):
+    return c - d
