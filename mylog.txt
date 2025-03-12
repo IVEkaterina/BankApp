@@ -1,1 +1,0 @@
-my_function ok/nКонец функции my_function c результам: 3/n
