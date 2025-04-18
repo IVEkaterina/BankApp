@@ -6,7 +6,7 @@ from src.utils import get_read_json
 load_dotenv()
 
 
-def get_external_api():
+def get_external_api() -> float:
     tran = get_read_json('../data/operations.json')
     counter = 0
 
@@ -48,5 +48,3 @@ def get_external_api():
                 print(e)
 
     return counter
-
-print(get_external_api())

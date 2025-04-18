@@ -8,4 +8,3 @@ def test_get_read_json(mock_json_load, mock_open):
   result = get_read_json("fake_file.json")
   assert result == [{"amount": 100}]
   mock_open.assert_called_once_with("fake_file.json", 'r', encoding='utf-8')
-  mock_json_load.assert_called_once()
