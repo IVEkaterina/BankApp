@@ -11,7 +11,7 @@ def get_read_json(path_file: str) -> list[dict]:
                 return data
             else:
                 return []
-    except FileNotFoundError as f:
+    except FileNotFoundError:
         return []
-    except JSONDecodeError as j:
+    except JSONDecodeError:
         return []
