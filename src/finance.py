@@ -20,9 +20,7 @@ print(read_transactions_from_csv("../data/transactions.csv"))
 def read_transactions_from_excel(file_path: str) -> list[dict]:
     """Считывает финансовые операции из XLSX-файла и возвращает список словарей."""
     try:
-        # Чтение Excel-файла в DataFrame
         df = pd.read_excel(file_path)
-        # Преобразование DataFrame в список словарей
         return df.to_dict(orient="records")
     except UnicodeDecodeError as ex:
         print(f"Ошибка кодировки: {ex}")
