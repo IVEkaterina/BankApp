@@ -1,5 +1,7 @@
-import pandas as pd
 import csv
+
+import pandas as pd
+
 
 def read_transactions_from_csv(file_path: str, encoding="utf-8") -> list[dict]:
     """Читает CSV-файл с финансовыми операциями и возвращает список словарей."""
@@ -9,10 +11,10 @@ def read_transactions_from_csv(file_path: str, encoding="utf-8") -> list[dict]:
             return list(reader)
     except FileNotFoundError:
         print(f"Файл не найден: {file_path}")
-        return []
     except Exception as ex:
         print(f"Произошла ошибка: {ex}")
-        return []
+    return []
+
 
 print(read_transactions_from_csv("../data/transactions.csv"))
 
@@ -28,5 +30,7 @@ def read_transactions_from_excel(file_path: str) -> list[dict]:
         print(f"Файл не найден: {file_path}")
     except Exception as ex:
         print(f"Произошла ошибка: {ex}")
+    return []
+
 
 print(read_transactions_from_excel("../data/transactions_excel.xlsx"))
