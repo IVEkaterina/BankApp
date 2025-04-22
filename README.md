@@ -128,3 +128,22 @@ for card_number in card_number_generator(1, 5):
 ## Декораторы
 1. Декоратор log, который будет автоматически регистрировать детали выполнения функций, такие как время вызова, имя функции, передаваемые аргументы, результат выполнения и информация об ошибках.
 2. Тесты к декораторам, проверяющие корректное выполнение функций
+## Новый функционал
+
+### Модуль для работы с CSV и Excel файлами
+
+- `read_transactions_from_csv(file_path: str) -> List[Dict]`: Считывает финансовые операции из CSV файла и возвращает список словарей с транзакциями.
+- `read_transactions_from_excel(file_path: str) -> List[Dict]`: Считывает финансовые операции из Excel файла и возвращает список словарей с транзакциями.
+
+### Примеры использования
+
+```python
+from my_module import read_transactions_from_csv, read_transactions_from_excel
+
+# Пример использования функции для CSV
+transactions_csv = read_transactions_from_csv('path/to/transactions.csv')
+print(transactions_csv)
+
+# Пример использования функции для Excel
+transactions_excel = read_transactions_from_excel('path/to/transactions.xlsx')
+print(transactions_excel)
