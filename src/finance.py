@@ -28,9 +28,6 @@ def read_transactions_from_csv(file_path: str, encoding="utf-8") -> list[dict]:
     return []
 
 
-print(read_transactions_from_csv("../data/transactions.csv"))
-
-
 def read_transactions_from_excel(file_path: str) -> list[dict]:
     """Считывает XLSX-файл с финансовыми операциями и возвращает список словарей.
 
@@ -55,6 +52,3 @@ def read_transactions_from_excel(file_path: str) -> list[dict]:
     except Exception as ex:
         print(f"Произошла ошибка: {ex}")
     return []
-
-
-print(read_transactions_from_excel("../data/transactions_excel.xlsx"))
