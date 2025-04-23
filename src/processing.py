@@ -10,5 +10,5 @@ def filter_by_state(list_trans: list[dict], state: str = "EXECUTED") -> list[dic
 
 def sort_by_date(requests: list[dict], reverse: bool = True) -> list[dict]:
     """Функция, которая принимает список словарей и необязательный параметр, задающий порядок сортировки.
-    И возвращает новый список, отсортированный по дате."""
+    И возвращает новый список, отсортированный по дате.(по умолчанию — убывание)"""
     return sorted(requests, key=lambda x: x.get("date", ""), reverse=reverse)
