@@ -1,6 +1,6 @@
 from src.finance import read_transactions_from_csv, read_transactions_from_excel
 from src.generators import filter_by_currency
-from src.processing import sort_by_date, filter_by_state
+from src.processing import filter_by_state, sort_by_date
 from src.regular import get_sort_bank_operations
 from src.utils import get_read_json
 from src.widget import get_date, mask_account_card
@@ -8,8 +8,7 @@ from src.widget import get_date, mask_account_card
 
 def main():
     transactions = []
-    print('''Привет! Добро пожаловать в программу работы 
-с банковскими транзакциями. ''')
+    print("Привет! Добро пожаловать в программу работы с банковскими транзакциями.")
 
     while True:
         menu_item = input('''Выберите необходимый пункт меню:
@@ -117,6 +116,3 @@ def main():
 
     if transactions == []:
         print("Не найдено ни одной транзакции, подходящей под ваши условия фильтрации")
-
-
-print(main())
