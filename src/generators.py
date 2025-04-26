@@ -5,15 +5,7 @@ def filter_by_currency(transactions: list[dict], currency_code: str) -> Generato
     """Функция, которая принимает на вход список словарей, представляющих транзакции.
     А возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной."""
     for transaction in transactions:
-        if "operationAmount" not in transaction:
-            continue
-        operation_amount = transaction["operationAmount"]
-        if "currency" not in operation_amount:
-            continue
-        currency = operation_amount["currency"]
-        if "code" not in currency:
-            continue
-        code = currency["code"]
+        code = transaction.get("operationAmount", {}).get("currency", {}).get("code")
         if code == currency_code:
             yield transaction
 

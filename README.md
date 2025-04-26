@@ -137,7 +137,7 @@ for card_number in card_number_generator(1, 5):
 
 ### Примеры использования
 
-```python
+```
 from my_module import read_transactions_from_csv, read_transactions_from_excel
 
 # Пример использования функции для CSV
@@ -147,3 +147,12 @@ print(transactions_csv)
 # Пример использования функции для Excel
 transactions_excel = read_transactions_from_excel('path/to/transactions.xlsx')
 print(transactions_excel)
+```
+
+## Новые функции
+1. Функция `get_sort_bank_operations`, которая принимает список словарей с данными о банковских операциях и строку поиска,
+     а возвращает список словарей, у котороого в описании есть данная строка.
+2. Функцию `count_operations_by_category`, которая принимает список словарей с данными о банковских операциях и список категорий операций,
+     а возвращает словарь, в котором ключи — это названия категорий,
+    а значения — это количество операций в каждой категории.
+3. Функция `main`, которая отвечает за основную логику проекта и связывает функциональности между собой.
